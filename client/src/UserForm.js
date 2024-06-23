@@ -1,6 +1,12 @@
-import { Grid, Typography } from "@mui/material";
+import { Button, Grid, Input, Typography } from "@mui/material";
+import { useState } from "react";
 
 const UserForm = props => {
+
+    //varible update
+    const [id, setId] = useState(0);
+    const [name, setName] = useState("");
+
     return(
         <Grid //like div
             container
@@ -12,16 +18,19 @@ const UserForm = props => {
             }}   
         >
 
-            <Grid item xs={12}>
+            <Grid item xs={12}> 
                 <Typography component={'h1'}
                     sx={{
-                        color:'#000000'
+                        color:'#000000',
+                        fontSize: '25px',
+                        paddingLeft: '200px',
+                        fontWeight: 'bold'
                     }}
                 >User Form</Typography>
             </Grid>
 
-                    <Grid item xs={12} sm={6} // extra small size ekedi full screen, small type ekedi half
-                    sx={{display: 'flex'}} //eka pelata hdagannnawa
+                    <Grid item xs={12} sm={6} // extra small size - full screen, small type - half
+                    sx={{display: 'flex'}} //display top to down with arrange align
                     >
                         <Typography 
                         component={'label'} 
@@ -29,19 +38,60 @@ const UserForm = props => {
                         sx={{
                             color:'#000000',
                             marginRight: '20px',
-                            fontSize: '16px',
-                            width: '50px',
+                            fontSize: '20px',
+                            width: '100px',
                             display: 'block',
                         }}>ID</Typography>
-                        <input 
-                            type='number'
-                            id='id'
-                            name= 'id'
+                        <Input
+                            type='number' //called props(type, id, name)
+                            id='id' //props
+                            name= 'id' // props
                             sx={{
                                 width:'400px'}}
-                                value={''}
-                                onChange={e => {}} />
+                                value={id}
+                                onChange={e => setId(e.target.value)} />
                     </Grid>
+
+                    <Grid item xs={12} sm={6} // extra small size - full screen, small type - half
+                    sx={{display: 'flex'}} 
+                    >
+                        <Typography 
+                        component={'label'} 
+                        htmlFor="id"
+                        sx={{
+                            color:'#000000',
+                            marginRight: '20px',
+                            fontSize: '20px',
+                            width: '100px',
+                            display: 'block',
+                            paddingTop: '20px'
+                        }}>Name</Typography>
+                        <Input 
+                            type='text'
+                            id='name'
+                            name= 'name'
+                            sx={{
+                                width:'400px'}}
+                                value={name}
+                                onChange={e => setName(e.target.value)} 
+                                />
+                    </Grid>
+
+                    <Button
+                        sx={{
+                            margin: 'auto',
+                            marginBottom: '20px',
+                            backgroundColor: '#00c6c6',
+                            color: '#000000',
+                            maringLeft: '15px',
+                            marginTop: '20px',
+                            "&:hover":{
+                                opacity: '0.7',
+                                backgroundColor: '#00c6c6'
+                            }
+                        }}>
+                            Add
+                    </Button>
         </Grid>
     )
 }
