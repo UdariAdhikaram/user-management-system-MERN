@@ -20,4 +20,9 @@ app.get('/users', (req,res) => {
 );
 app.use(express.json()); 
 
-module.exports = app;
+module.exports = app;app.get('/user', (req,res) =>{
+    const id = req.query.id;
+    controller.getUserById(id, user => {
+        res.send(user);
+    });
+});
