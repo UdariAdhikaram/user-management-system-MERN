@@ -26,3 +26,10 @@ module.exports = app;app.get('/user', (req,res) =>{
         res.send(user);
     });
 });
+
+app.get('/user', (req,res) =>{
+    const name = req.query.name;
+    controller.getUserByName(name, user =>{
+        res.send(user);
+    });
+});
