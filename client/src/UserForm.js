@@ -1,11 +1,12 @@
 import { Button, Grid, Input, Typography } from "@mui/material";
-import { useState } from "react";
+import { useState } from "react";   // react hook
 
 const UserForm = props => {
 
     //varible update
     const [id, setId] = useState(0);
-    const [name, setName] = useState("");
+    const [name, setName//update functon
+        ] = useState("");
 
     return(
         <Grid //like div
