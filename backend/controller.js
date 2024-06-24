@@ -16,3 +16,8 @@ const getUserById = (id, cb) =>{
     cb(user);
 };
 
+const getUserByName = (name, cb) =>{
+    const user = users.find(user => user.name === name);
+    cb(user);
+};
+
