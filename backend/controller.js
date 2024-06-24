@@ -7,3 +7,7 @@ const users = [{
     name: 'Udari',
 }];
 
+const getUsers = (cb) => {
+    cb(users);
+};
+
