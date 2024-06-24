@@ -21,3 +21,6 @@ const getUserByName = (name, cb) =>{
     cb(user);
 };
 
+exports.getUsers = getUsers;
+exports.getUserById = getUserById;
+exports.getUserByName = getUserByName;
