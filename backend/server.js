@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
+const router = require('./router');
 
 const port = 3001;
 const host = '127.0.0.1';
@@ -25,3 +26,5 @@ connect();
 const server = app.listen(port, host,() => { //'127.0.0.1' or http://localhost
     console.log(`Node server is listeninng to ${server.address().port}`)
 });
+
+app.use('/api', router);
