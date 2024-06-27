@@ -17,28 +17,21 @@ app.get('/users', (req,res) => {
 
 });
 
-app.get('/user', (req,res) =>{
-
-    controller.getUsers(id, user => {
-        res.send(user);
-    });
-});
-
 app.post('/createuser', (req,res) =>{
-    controller.addUser(req.body, (callback) => {
+    controller.addUser(req.body, (callack) => {
         res.send();
     });
 });
 
 app.post('/updateuser', (req,res) =>{
-    controller.updateUser(req.body, (callback) => {
-        res.send(callback);
+    controller.updateUser(req.body, (callack) => {
+        res.send(callack);
     });
 });
 
 app.post('/deleteuser', (req,res) =>{
-    controller.deleteUser(req.body, (callback) => {
-        res.send(callback);
+    controller.deleteUser(req.body, (callack) => {
+        res.send(callack);
     });
 });
 
