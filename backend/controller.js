@@ -1,28 +1,17 @@
-const users = [{
-    id: 1,
-    name: 'Udari',
-},
-{
-    id: 1,
-    name: 'Udari',
-}];
+const { response } = require('express');
+const User = require('./model');
 
 
-
-const getUsers = (cb) => {
-    cb(users);
+const getUsers = (req, res, next) => {
+    User.find()
+        .then(response => {
+            res.json({ response })
+        })
+        .catch(error => {
+            res.json({ message: error})
+        })
 };
 
-const getUserById = (id, cb) =>{
-    const user = users.find(user => user.id == id);
-    cb(user);
-};
-
-/*const getUserByName = (name, cb) =>{
-    const user = users.find(user => user.name === name);
-    cb(user);
-};*/
 
 exports.getUsers = getUsers;
 exports.getUserById = getUserById;
-//exports.getUserByName = getUserByName;
