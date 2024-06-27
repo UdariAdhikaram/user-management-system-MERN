@@ -24,11 +24,11 @@ app.get('/user', (req,res) =>{
     });
 });
 
-app.get('/user', (req,res) =>{
-    const name = req.query.name;
-    controller.getUserByName(name, user =>{
-        res.send(user);
+app.post('/createuser', (req,res) =>{
+    controller.addUser(req.body, (callback) => {
+        res.send();
     });
 });
+
 
 module.exports = app;
