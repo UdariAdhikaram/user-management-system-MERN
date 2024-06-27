@@ -30,5 +30,10 @@ app.post('/createuser', (req,res) =>{
     });
 });
 
+app.post('/updateuser', (req,res) =>{
+    controller.updateUser(req.body, (callback) => {
+        res.send(callback);
+    });
+});
 
 module.exports = app;
