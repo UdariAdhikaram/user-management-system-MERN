@@ -7,6 +7,8 @@ const users = [{
     name: 'Udari',
 }];
 
+
+
 const getUsers = (cb) => {
     cb(users);
 };
@@ -16,11 +18,11 @@ const getUserById = (id, cb) =>{
     cb(user);
 };
 
-const getUserByName = (name, cb) =>{
+/*const getUserByName = (name, cb) =>{
     const user = users.find(user => user.name === name);
     cb(user);
-};
+};*/
 
 exports.getUsers = getUsers;
 exports.getUserById = getUserById;
-exports.getUserByName = getUserByName;
+//exports.getUserByName = getUserByName;
