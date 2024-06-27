@@ -19,7 +19,7 @@ app.get('/users', (req,res) => {
 
 app.get('/user', (req,res) =>{
 
-    controller.getUserById(id, user => {
+    controller.getUsers(id, user => {
         res.send(user);
     });
 });
@@ -37,7 +37,7 @@ app.post('/updateuser', (req,res) =>{
 });
 
 app.post('/deleteuser', (req,res) =>{
-    controller.deleteteUser(req.body, (callback) => {
+    controller.deleteUser(req.body, (callback) => {
         res.send(callback);
     });
 });
