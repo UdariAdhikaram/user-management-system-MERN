@@ -10,6 +10,13 @@ const UserForm = ({ addUser, submitted }) => {
     const [name, setName//update functon
         ] = useState("");
 
+        useEffect(() =>{
+            if(!submitted) {
+                setId(0);
+                setName('')
+            }
+        },[submitted]);
+
     return(
         <Grid //like div
             container
