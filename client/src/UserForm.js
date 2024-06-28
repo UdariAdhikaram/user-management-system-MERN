@@ -2,6 +2,7 @@ import { Button, Grid, Input, Typography } from "@mui/material";
 import { useEffect, useState } from "react";   // react hook
 
 const UserForm = ({ addUser, submitted }) => {
+const UserForm = ({ addUser, updateUser, submitted, data, isEdit }) => {
 
     //varible update
     const [id, setId] = useState(0);
