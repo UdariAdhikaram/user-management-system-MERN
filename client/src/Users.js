@@ -52,6 +52,12 @@ const Users = () => { // functional component(Users) - parent component
                 console.error("Axios Error : ", error);
             })
     }
+
+    const deleteUser = (data) => {
+
+        Axios.post('http://localhost:3001/api/deleteuser', data)
+            .then(() => {
+                getUsers();
             })
             .catch(error => {
                 console.error("Axios Error : ", error);
