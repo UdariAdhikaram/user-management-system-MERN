@@ -108,8 +108,11 @@ const UserForm = ({ addUser, updateUser, submitted, data, isEdit }) => {
                             }
                         }}
                             onClick={() => addUser({ id: id, name: name })}
+                            onClick={() => isEdit ? updateUser({id,name}) : addUser({ id,name })}
                         >
-                            Add
+                            {
+                                isEdit ? 'Update' : 'Add'
+                            }
                     </Button>
         </Grid>
     )
