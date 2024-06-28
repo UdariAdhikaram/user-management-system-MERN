@@ -3,6 +3,7 @@ import { useState } from "react";   // react hook
 import { useEffect, useState } from "react";   // react hook
 
 const UserForm = props => {
+const UserForm = ({ addUser, submitted }) => {
 
     //varible update
     const [id, setId] = useState(0);
