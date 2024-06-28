@@ -12,6 +12,15 @@ const users = [
     name: 'Isuru'
 }
 ];
+    const getUsers = () => {
+        Axios.get('http://localhost:3001/api/users')
+            .then(response => {
+                setUsers(response.data?.response || []);
+            })
+            .catch(error => {
+                console.error("Axios Error : ", error);
+            })
+    };
 
 const Users = () =>{ // functional component(Users)
     return(
