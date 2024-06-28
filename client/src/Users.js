@@ -34,6 +34,24 @@ const Users = () => { // functional component(Users) - parent component
             .then(() => {
                 getUsers();
                 setSubmited(false);
+    const updateUser = (data) => {
+        setSubmited(true);
+
+        const payload = {
+            id: data.id,
+            name: data.name,
+        }
+
+        Axios.put('http://localhost:3001/api/updateuser', payload)
+            .then(() => {
+                getUsers();
+                setSubmited(false);
+                isEdit(false);
+            })
+            .catch(error => {
+                console.error("Axios Error : ", error);
+            })
+    }
             })
             .catch(error => {
                 console.error("Axios Error : ", error);
