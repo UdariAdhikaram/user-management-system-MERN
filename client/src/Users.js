@@ -1,17 +1,18 @@
 import { Box } from "@mui/material";
-import UserForm from "./UserForm"
+import UserForm from "./UserForm";
 import UsersTable from "./UsersTable";
+import Axios from 'axios';
+import { useEffect, useState } from "react";
 
-const users = [
-{
-    id: 1,
-    name: 'Udari'
-},
-{
-    id: 2,
-    name: 'Isuru'
-}
-];
+const Users = () => { // functional component(Users) - parent component
+    const [users, setUsers] = useState([]);
+    const [submitted, setSubmited] = useState(false);
+
+
+    useEffect(() => {
+        getUsers();
+    }, []);
+
     const getUsers = () => {
         Axios.get('http://localhost:3001/api/users')
             .then(response => {
@@ -22,8 +23,6 @@ const users = [
             })
     };
 
-const Users = () =>{ // functional component(Users)
-    return(
     const addUser = (data) =>{
         setSubmited(true);
 
@@ -43,16 +42,19 @@ const Users = () =>{ // functional component(Users)
 
     return (
         <Box
-        sx={{
-            width: 'calc(100% - 100px)',
-            margin: 'auto',
-            marginTop: '100px'
-        }}>
-        <UserForm />
-        <UsersTable rows={users}/>
-        </Box>
+            sx={{
+                width: 'calc(100% - 100px)',
+                margin: 'auto',
+                marginTop: '100px'
+            }}
+        >
+            <UserForm 
+                addUser={addUser}
+                submitted={submitted}
+                />
+            <UsersTable rows={users} />
+        </Box> //child components
     );
-
 }
 
-export default Users //like export it default type
+export default Users;
