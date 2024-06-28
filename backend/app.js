@@ -14,7 +14,6 @@ app.get('/users', (req,res) => {
     controller.getUsers((req, res, next) => {
         res.send();
     })
-
 });
 
 app.post('/createuser', (req,res) =>{
@@ -23,13 +22,13 @@ app.post('/createuser', (req,res) =>{
     });
 });
 
-app.post('/updateuser', (req,res) =>{
+app.put('/updateuser', (req,res) =>{
     controller.updateUser(req.body, (callack) => {
         res.send(callack);
     });
 });
 
-app.post('/deleteuser', (req,res) =>{
+app.delete('/deleteuser', (req,res) =>{
     controller.deleteUser(req.body, (callack) => {
         res.send(callack);
     });
