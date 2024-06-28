@@ -1,7 +1,6 @@
 import { Button, Grid, Input, Typography } from "@mui/material";
 import { useEffect, useState } from "react";   // react hook
 
-const UserForm = ({ addUser, submitted }) => {
 const UserForm = ({ addUser, updateUser, submitted, data, isEdit }) => {
 
     //varible update
@@ -107,7 +106,6 @@ const UserForm = ({ addUser, updateUser, submitted, data, isEdit }) => {
                                 backgroundColor: '#00c6c6'
                             }
                         }}
-                            onClick={() => addUser({ id: id, name: name })}
                             onClick={() => isEdit ? updateUser({id,name}) : addUser({ id,name })}
                         >
                             {
