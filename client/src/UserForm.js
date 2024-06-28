@@ -100,6 +100,9 @@ const UserForm = ({ addUser, submitted }) => {
                                 backgroundColor: '#00c6c6'
                             }
                         }}>
+                        }}
+                            onClick={() => addUser({ id: id, name: name })}
+                        >
                             Add
                     </Button>
         </Grid>
