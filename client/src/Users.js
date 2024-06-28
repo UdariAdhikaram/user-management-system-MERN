@@ -34,6 +34,13 @@ const Users = () => { // functional component(Users) - parent component
             .then(() => {
                 getUsers();
                 setSubmited(false);
+                isEdit(false);
+            })
+            .catch(error => {
+                console.error("Axios Error : ", error);
+            })
+    }
+
     const updateUser = (data) => {
         setSubmited(true);
 
