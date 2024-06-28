@@ -16,6 +16,14 @@ const UserForm = ({ addUser, updateUser, submitted, data, isEdit }) => {
             }
         },[submitted]);
 
+
+        useEffect(() =>{
+            if(data?.id && data.id !== 0){
+                setId(data.id);
+                setName(data.name)
+            }
+        },[data]);
+
     return(
         <Grid //like div
             container
