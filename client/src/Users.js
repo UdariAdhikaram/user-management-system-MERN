@@ -24,6 +24,24 @@ const users = [
 
 const Users = () =>{ // functional component(Users)
     return(
+    const addUser = (data) =>{
+        setSubmited(true);
+
+        const payload = {
+            id: data.id,
+            name: data.name,
+        }
+        Axios.post('http://localhost:3001/api/createuser', payload)
+            .then(() => {
+                getUsers();
+                setSubmited(false);
+            })
+            .catch(error => {
+                console.error("Axios Error : ", error);
+            })
+    }
+
+    return (
         <Box
         sx={{
             width: 'calc(100% - 100px)',
