@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 const Users = () => { // functional component(Users) - parent component
     const [users, setUsers] = useState([]);
     const [submitted, setSubmited] = useState(false);
+    const [isEdit, setisEdit] = useState(false);
+    const [selectedUser, setselectedUser] = useState({});
 
 
     useEffect(() => {
@@ -81,9 +83,18 @@ const Users = () => { // functional component(Users) - parent component
         >
             <UserForm 
                 addUser={addUser}
+                updateUser={updateUser}
                 submitted={submitted}
+                data={selectedUser}
+                isEdit={isEdit}
                 />
-            <UsersTable rows={users} />
+            <UsersTable 
+                rows={users}
+                selectedUser={data =>{
+                    setselectedUser(data);
+                    setisEdit(true);
+                }}
+                deleteUser={data => window.confirm('Are you sure?') && deleteUser(data)} />
         </Box> //child components
     );
 }
