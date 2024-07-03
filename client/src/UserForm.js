@@ -26,21 +26,22 @@ const UserForm = ({ addUser, updateUser, submitted, data, isEdit }) => {
     return(
         <Grid //like div
             container
-            spacing={2}
+            spacing={3}
             sx={{ //like css part
                 backgroundColor: '#ffffff',
-                marginBottom: '30px',
-                display: 'block',
+                padding: '100px',
+                display: 'block'
             }}   
         >
 
-            <Grid item xs={12}> 
+            <Grid item xs={8}> 
                 <Typography component={'h1'}
                     sx={{
                         color:'#000000',
                         fontSize: '25px',
                         paddingLeft: '200px',
-                        fontWeight: 'bold'
+                        fontWeight: 'bold',
+                        alignItems: 'center'
                     }}
                 >User Form</Typography>
             </Grid>
@@ -95,6 +96,7 @@ const UserForm = ({ addUser, updateUser, submitted, data, isEdit }) => {
 
                     <Button
                         sx={{
+                            alignItems: 'center',
                             margin: 'auto',
                             marginBottom: '20px',
                             backgroundColor: '#00c6c6',
